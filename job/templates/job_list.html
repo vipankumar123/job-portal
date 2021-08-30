@@ -1,0 +1,62 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b></marquee>Manage job DetailsV</h1>
+<div class="container">
+<table id="example" class="table table-hover">
+	<thead>
+		<tr style="background-color: #deb887">
+			<th>sr.no</th>
+			<th>Creation Date</th>
+			<th>Title</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Company Logo</th>
+			<th>Salary</th>
+			<th>Experience</th>
+			<th>Company Location</th>
+			<th>Description</th>
+			<th>Skills</th>
+			<th>Status</th>
+			<th>Action</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in job %}
+		<tr style="background-color: yellow">
+			<td>{{forloop.counter}}</td>
+			<td>{{i.creationdate}}</td>
+			<td>{{i.title}}</td>
+			<td>{{i.start_date}}</td>
+			<td>{{i.end_date}}</td>
+			<td><img src="{{i.image.url}}" width="120" height="90"></td>
+			<td>{{i.salary}}</td>
+			<td>{{i.experience}}</td>
+			<td>{{i.location}}</td>
+			<td>{{i.skills}}</td>
+			<td>{{i.decsription}}</td>
+
+			<td><a href="/job/edit_job/{{i.id}}/">Edit</a></td>
+			<td><a href="/job/delete/{{i.id}}/" onclick="return confirm('Are you sure')">delete</a></td>
+	
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+
+
+
+{% endblock %}

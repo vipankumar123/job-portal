@@ -1,0 +1,41 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+
+
+</style>
+
+<div class="register">
+
+	<form method="post" action="/job/admin_login/">{% csrf_token %}
+
+
+
+<label>Username</label>
+<input style="font-size: 18px" type="text" name="username" required=""><br><br>
+<label>Password&nbsp</label>
+<input style="font-size: 18px"  type="text" name="password" required=""><br><br>
+<input style="background-color: yellow; color: blue; padding: 5px 12px" type="submit" value="Login">
+</form>
+<div class="images">
+
+</div>
+{% ifequal error 'no' %}
+<script>
+	alert('Login successfull');
+	window.location = ("{% url 'admin_home' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('Your login status is pending....');
+
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

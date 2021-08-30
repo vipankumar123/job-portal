@@ -1,0 +1,58 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b>User Latest Job List</marquee></h1>
+<div class="container">
+<table id="example" class="table table-hover">
+	<thead>
+		<tr style="background-color: #deb887">
+			<th>sr.no</th>
+			<th>Company Name</th>
+			<th>Job Title</th>
+			<th>Location</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Action</th>
+			
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in job %}
+		<tr style="background-color: yellow">
+			<td>{{forloop.counter}}</td>
+			<td>{{i.recruiter.company}}</td>
+			<td>{{i.title}}</td>
+			<td>{{i.location}}</td>
+			<td>{{i.start_date}}</td>
+			<td>{{i.end_date}}</td>
+
+			{% if i.id in li%}
+			<td>Applied</td>
+			{% else %}
+			<td><a href="/job/job_detail/{{i.id}}">Apply</a></td>
+			{% endif %}
+
+		
+
+			
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+
+
+
+{% endblock %}

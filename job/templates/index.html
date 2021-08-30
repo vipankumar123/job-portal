@@ -1,0 +1,53 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+	.imagess{
+
+	border: 2px solid;
+	border-color: yellow;
+	background-color: black;
+	}
+
+.contact{
+	background-color: black;
+}	
+
+.img img{
+
+	width: 80%;
+	height: 80%;
+	margin-left: 10%;
+
+}
+	
+</style>
+
+
+	<div class="abc">
+
+		<span style="color: red ; text-align: center"><h1>Online job</h1></span>
+		<span style="color: blue; text-align: center"><h1>Portal system</h1></span>
+	</div>
+	<div class="img">
+		<img style="" src="{% static 'images/jobportal.jpg' %}">
+
+	</div>
+	<div class="imagess">
+		<img style="border-radius: 50%; width: 335px" src="{% static 'images/f2.jpg' %}"><b style="color: white;">&nbsp&nbspfacebook&nbsp&nbsp&nbsp</b>
+		<img style="border-radius: 50%;width: 335px" src="{% static 'images/f3.jpg' %}"><b style="color: white;">&nbsp&nbspamazon&nbsp&nbsp&nbsp</b>
+		<img style="border-radius: 50%;width: 335px" src="{% static 'images/myjobportal.jpg' %}"><b style="color: white;">&nbsp&nbspflipkart</b>
+	</div>
+	<h3>Contact Information</h3>
+
+	<ul style="background-color: black; padding-bottom: 5%">
+		<li style="color: red">Chandigarh sector 22</li>
+		<li style="color: red">vipan@gmail.com</li>
+		<li style="color: red">p.no--9878098965</li>
+		<li style="color: red">w: www.vipankumar</li>		
+	</ul>
+
+
+
+{% endblock %}

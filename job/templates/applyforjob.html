@@ -1,0 +1,49 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'>Apply for a job</b></marquee></h1>
+<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+<div class="container">
+	<label>Uploas resume</label>
+	<input type="file" name="resume">
+	</div><br>
+	<input type="submit" value="submit">
+</form>
+
+{% ifequal error 'close' %}
+<script>
+	alert('Application line are closed', Last date is over);
+	window.location = ("{% url 'user_latestjob' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'notopen' %}
+<script>
+	alert('Application line is not open');
+	window.location = ("{% url 'user_latestjob' %}")
+
+</script>
+{% endifequal %}
+
+{% ifequal error 'done' %}
+<script>
+	alert('job Application submitted successfully');
+	window.location = ("{% url 'user_latestjob' %}")
+
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<style>
+	
+
+.span{
+	margin-right: 4%;
+}
+
+div li{
+		display: inline-block;
+		padding: 5px 10px;
+		margin-left: 3%;
+
+}
+
+
+.nav{
+	background-color: green;
+		border: 2px solid;
+
+
+}
+.button{
+		background-color: white;
+		color: black;
+			margin-top: 8%;
+
+}
+.nav a{
+
+	color: black;
+	padding: 8px 15px;
+	background-color: white;
+
+}
+
+.nav a:hover{
+
+	background-color: red;
+	color: #fff;
+}
+
+{
+
+	font-family: 20px;
+}
+
+</style>
+<head>
+	<title>job portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+
+</head>
+	<h1><b>JOB PORTAL</b></h1>
+<body class="body">
+
+<div class="nav">
+	<ul>
+	<li style="color: yellow; font-family: ">Job portal</li>
+	<li><a href="/job/userhome/">Home</a></li>
+	<li><a href="#">Contact</a></li>
+	<li><a href="/job/user_latestjob/">Job List</a></li>
+	<li><a href="/job/change_password_user/">Change Password</a></li>
+	<li><a href="/job/logout/">Logout</a></li>
+</ul>
+	
+	</div>
+	
+
+
+
+	{% block body %}
+
+{% endblock %}
+</body>
+</html>

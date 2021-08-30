@@ -1,0 +1,58 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+h1{
+
+	text-align: center;
+	color: pink;
+}
+
+h2{
+	color: blue;
+	text-align: center;
+
+}
+
+h3{
+	color: red;
+}
+
+marquee{
+	background-color: blue;
+}
+
+
+
+th:hover{
+	background-color: grey;
+	color: yellow;
+}
+
+
+</style>
+
+<marquee><h1>admin home</h1></marquee>
+
+<div class="container">
+<table>
+	<thead>
+		<tr >
+			<th style="text-align: center; padding: 10px 70px;"><h2>Total Recruiter</h2><b><h3>{{rcount}}</h3></b></th>
+			<th style="text-align: center; padding: 10px 70px;"><h2>Total Student</h2><b><h3>{{scount}}</h3></b></th>
+
+		</tr>
+	</thead>
+</table>
+</div>
+
+
+{% endblock %}

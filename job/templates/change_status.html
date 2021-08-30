@@ -1,0 +1,49 @@
+h{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b></marquee>Change Status</h1><hr>
+
+<form method="post">{% csrf_token %}
+
+
+
+<label>Recruiter Name</label>
+<input style="font-size: 18px" type="text" value="{{data.user.first_name}}{{data.user.last_name}}" required=""><br><br>
+<label>Status</label>
+	<select name="status">
+		<option value="Accept">Accept</option>
+		<option value="Reject">Reject</option>
+	</select><br>
+	<input type="submit" value="submit">
+</form>
+<div class="images">
+
+</div>
+{% ifequal error 'no' %}
+<script>
+	alert('Status Changeed successfull');
+	window.location = ("{% url 'recruiter_all' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('something went wrong...');
+
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

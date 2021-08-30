@@ -1,0 +1,75 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+
+
+
+		<h1><b><marquee style='background-color: yellow'>User Profile </b></marquee></h1>
+
+
+<form style="margin-left: 20%; border: 2px solid; margin-right: 20%; padding: 20px 20px" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+<label>Firstname</label>
+<input style="font-size: 18px" type="text" name="first_name" value="{{recruiter.user.first_name}}" required="">
+<label>Lastname</label>
+<input style="font-size: 18px"  type="text" name="last_name" value="{{recruiter.user.last_name}}" required=""><br><br>
+
+<label>Email</label>
+<input style="font-size: 18px" type="email" name="email"  value="{{recruiter.user.email}}" required=""><br><br>
+<label>mobile</label>
+<input style="font-size: 18px" type="text" name="mobile" value="{{recruiter.mobile}}" required=""><br><br>
+<label>Gender</label>
+{% if recruiter.grnger == 'male' %}
+<input style="font-size: 18px" type="radio" name="gender" value="male" required="" checked="male">male
+<input style="font-size: 18px" type="radio" name="gender" value="female" required="">female<br><br>
+{% else %}
+
+<label>Gender</label>
+<input style="font-size: 18px" type="radio" name="gender" value="male" required="" checked="female">male
+<input style="font-size: 18px" type="radio" name="gender" value="female" required="">female<br><br>
+{% endif %}
+
+  
+<label>Image</label>
+<input style="font-size: 18px"  type="file" name="image" ><br><br>
+
+<input style="background-color: yellow; color: blue; padding: 5px 12px" type="submit" value="UPDATE">
+
+</form>
+<div class="images">
+
+</div> 
+
+{% ifequal error 'no' %}
+<script>
+	alert('Profile updated successfull');
+	window.location = ("{% url 'recruiter_home' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('sinvalid login cardientials');
+
+</script>
+{% endifequal %}
+
+
+
+ 
+
+
+
+
+{% endblock %}

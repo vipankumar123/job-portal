@@ -1,0 +1,47 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+			<h1><b><marquee style='background-color: yellow'></b></marquee>Add Jobs</h1><hr>
+
+
+<form method="POST" enctype="multipart/form-data" action="/job/addjob/">{% csrf_token %}
+
+
+
+<label>Job Title</label>
+<input style="font-size: 18px" type="text" name="title" required="true"><br><br>
+<label>Start Date</label>
+<input style="font-size: 18px" type="date" name="start_date" required="true">
+<label>End Date</label>
+<input style="font-size: 18px" type="date" name="end_date" required="true"><br><br>
+<label>Salary(Per Month)</label>
+<input style="font-size: 18px" type="text" name="salary" required="true"><br><br>
+<label>Image</label>
+<input style="font-size: 18px" type="file" name="image" required="true"><br><br>
+<label>Experience(In Years)</label>
+<input style="font-size: 18px" type="text" name="experience" required="true">
+<label>Company Location</label>
+<input style="font-size: 18px" type="text" name="location" required="true"><br><br>
+<label>Skills</label>
+<input style="font-size: 18px" type="text" name="skills" required="true"><br><br>
+<label>Description</label>
+<textarea style="font-size: 18px" type="text" name="description" required="true"></textarea><br><br>	
+	<input style="background-color: blue; color: white" type="submit" value="submit">
+</form>
+
+{% ifequal error 'no' %}
+<script>
+	alert('Job detail has been added');
+	window.location = ("{% url 'job_list' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('something went wrong....');
+
+</script>
+{% endifequal %}
+
+
+{% endblock %}

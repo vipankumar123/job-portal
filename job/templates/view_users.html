@@ -1,0 +1,47 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b></marquee>View all student User</h1>
+<div>
+<table id="example" class="table table-hover">
+	<thead>
+		<tr style="background-color: #deb887">
+			<th>sr.no</th>
+			<th>Full Name</th>
+			<th>Email</th>
+			<th>Contact</th>
+			<th>Gender</th>
+			<th>Image</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in data %}
+		<tr style="background-color: yellow">
+			<td>{{forloop.counter}}</td>
+			<td>{{i.user.first_name}} {{i.user.last_name}}</td>
+			<td>{{i.user.email}}</td>
+			<td>{{i.mobile}}</td>
+			<td>{{i.gender}}</td>
+			<td><img src="{{i.image.url}}" style="width: 100px; height: 100px; border-radius: 50%"></td>
+			<td><a href="/job/delete/{{i.id}}/" onclick="return confirm('Are you sure')">delete</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+
+
+
+{% endblock %}

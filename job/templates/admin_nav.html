@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<style>
+	
+
+.span{
+	margin-right: 4%;
+}
+
+div li{
+		display: inline-block;
+		padding: 5px 10px;
+		
+
+}
+
+
+.nav{
+	background-color: green;
+		border: 2px solid;
+
+
+}
+.button{
+		background-color: white;
+		color: black;
+			margin-top: 8%;
+
+}
+.nav a{
+
+	color: black;
+	padding: 8px 15px;
+	background-color: white;
+
+}
+
+.nav a:hover{
+
+	background-color: red;
+	color: #fff;
+}
+
+{
+
+	font-family: 20px;
+}
+
+</style>
+<head>
+	<title>job portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+
+</head>
+	<h1><b>JOB PORTAL</b></h1>
+<body class="body">
+
+<div class="nav">
+	<ul>
+	<li><a href="/job/admin_home/">Home</a></li>
+	<li><a href="#">Contact</a></li>
+
+	
+	<li><a href="/job/view_recruiters/">View Recriter</a></li>
+	<li><a href="/job/recruiter_pending/">Recriter pending</a></li>
+	<li><a href="/job/recruiter_accepted/">Recriter Accept</a></li>
+	<li><a href="/job/recruiter_rejected/">Recriter Rejected</a></li>
+	<li><a href="/job/recruiter_all/">All Recriter</a></li>
+
+	<li><a href="/job/viewusers/">View Users</a></li>
+	<li><a href="/job/change_password_admin/">Change Password</a></li><hr>
+
+
+	<li><a href="/job/logout/">Logout</a></li>
+</ul>
+	
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+
+<script>$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+
+</script>
+
+	
+
+
+
+	{% block body %}
+
+{% endblock %}
+</body>
+</html>

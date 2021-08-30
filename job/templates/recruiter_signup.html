@@ -1,0 +1,71 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+
+
+
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+<div class="register">
+		<h1><b><marquee style='background-color: yellow'>SIGNUP for a new Recruiter </b></marquee></h1>
+
+
+<form style="margin-left: 20%; border: 2px solid; margin-right: 20%; padding: 20px 20px" method="post" action="/job/recruitersignup/" enctype="multipart/form-data">{% csrf_token %}
+
+<label>Firstname</label>
+<input style="font-size: 18px" type="text" name="first_name" placeholder="Enter Firstname" required="">
+<label>Lastname</label>
+<input style="font-size: 18px"  type="text" name="last_name" placeholder="Enter Lastname" required=""><br><br>
+<label>Username</label>
+<input style="font-size: 18px"  type="text" name="username" placeholder="Enter username" required=""><br><br>
+<label>Email</label>
+<input style="font-size: 18px" type="email" name="email" placeholder="Enter Email" required=""><br><br>
+<label>mobile</label>
+<input style="font-size: 18px" type="text" name="mobile" placeholder="Enter Contact no" required=""><br><br>
+<label>Gender</label>
+<input style="font-size: 18px" type="radio" name="gender" value="male" required="">male
+<input style="font-size: 18px" type="radio" name="gender" value="female" required="">female<br><br>
+<label>Password</label>
+<input style="font-size: 18px"  type="password" name="password1" placeholder="Enter password" required="">
+<label>Confirm Password</label>
+<input style="font-size: 18px" type="password" name="password2" placeholder="Confirm password" required=""><br><br>
+<label>Image</label>
+<input style="font-size: 18px"  type="file" name="image" required=""><br><br>
+<label>Company</label>
+<input style="font-size: 18px"  type="text" name="company" required=""><br><br>
+<input style="background-color: yellow; color: blue; padding: 5px 12px" type="submit" value="Recruiter register">
+
+</form>
+<div class="images">
+
+</div> 
+
+{% ifequal error 'no' %}
+<script>
+	alert('signup successfull');
+	window.location = ("{% url 'recruiter_login' %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'not' %}
+<script>
+	alert('sinvalid login cardientials');
+
+</script>
+{% endifequal %}
+
+
+
+ 
+
+
+{% endblock %}

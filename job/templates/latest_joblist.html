@@ -1,0 +1,55 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b>Latest Job List</marquee></h1>
+<div class="container">
+<table id="example" class="table table-hover">
+	<thead>
+		<tr style="background-color: #deb887">
+			<th>sr.no</th>
+			<th>Company Name</th>
+			<th>Job Title</th>
+			<th>Location</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Status</th>
+			<th>Status</th>
+			<th>Action</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in job %}
+		<tr style="background-color: yellow">
+			<td>{{forloop.counter}}</td>
+			<td>{{i.recruiter.company}}</td>
+			<td>{{i.title}}</td>
+			<td>{{i.location}}</td>
+			<td>{{i.start_date}}</td>
+			<td>{{i.end_date}}</td>
+			<td><a href="/job/user_login/{{i.id}}">Login to Apply</a></td>
+		
+
+			<td><a href="/job/edit_job/{{i.id}}/">Edit</a></td>
+			<td><a href="/job/delete/{{i.id}}/" onclick="return confirm('Are you sure')">delete</a></td>
+	
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+			<h1><b><marquee style='background-color: yellow'></b></marquee>Edit details</h1><hr>
+
+
+<form method="POST" enctype="multipart/form-data" action="/job/edit_job/{{job.id}}/">{% csrf_token %}
+
+
+
+<label>Job Title</label>
+<input style="font-size: 18px" type="text" name="title" value="{{job.title}}" required="true"><br><br>
+<label>Start Date</label>[{{job.start_date}}]<br><br>
+<input style="font-size: 18px" type="date" name="start_date" ><br><br>
+<label>End Date</label>[{{job.end_date}}]<br><br>
+<input style="font-size: 18px" type="date" name="end_date" ><br><br>
+<label>Salary(Per Month)</label>
+<input style="font-size: 18px" type="text" name="salary" value="{{job.salary}}" required="true"><br><br>
+<label>Image</label>
+<img src="{{job.image.url}}" width="120" height="90"><a href="/job/change_companylogo/{{job.id}}/">Change Company Logo</a><br><br>
+<label>Experience(In Years)</label>
+<input style="font-size: 18px" type="text" name="experience" value="{{job.experience}}" required="true">
+<label>Company Location</label>
+<input style="font-size: 18px" type="text" name="location" value="{{job.location}}" required="true"><br><br>
+<label>Skills</label>
+<input style="font-size: 18px" type="text" name="skills" value="{{job.skills}}" required="true"><br><br>
+<label>Description</label>
+<textarea style="font-size: 18px" type="text" name="description" value="{{job.description}}" required="true"></textarea><br><br>	
+	<input style="background-color: blue; color: white" type="submit" value="submit">
+</form>
+
+{% ifequal error 'no' %}
+<script>
+	alert('Job detail has been updated');
+	window.location = ("{% url 'edit_job' job.id %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('something went wrong....');
+
+</script>
+{% endifequal %}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+			<h1><b><marquee style='background-color: yellow'></b></marquee>Change Company Logo</h1><hr>
+
+
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+
+
+<label>Job Title</label>
+<input style="font-size: 18px" type="text" name="title" value="{{job.title}}" required="true" readonly="title"><br><br>
+<label>Company Logo</label>
+<input style="font-size: 18px" type="file" name="image"  required="true"><br><br>
+
+
+
+	<input style="background-color: blue; color: white" type="submit" value="submit">
+</form>
+
+{% ifequal error 'no' %}
+<script>
+	alert('company logo  has been updated');
+	window.location = ("{% url 'change_companylogo' job.id %}")
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+	alert('something went wrong....');
+
+</script>
+{% endifequal %}
+
+
+{% endblock %}

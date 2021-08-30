@@ -1,0 +1,49 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	
+.images{
+
+	background-image:  url({% static 'images/f2.jpg' %});
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+
+			<h1><b><marquee style='background-color: yellow'></b>Job Details</marquee></h1>
+<div class="container"><hr><hr>
+<table>
+	<tr style="padding: 5px 10px">
+		<th style="padding: 1px 90px">
+	<img src="{{job.image.url}}" width="300" height="200"> 
+</th>
+<th>
+	<h2 style="color: brown">{{job.title}}</h2><h4 style="color: grey">{{job.recruiter.company}}<em><a href="/job/user_latestjob/"> (View all Jobs)</a></em></h3>
+	<i><h4 style="color: blue">Location---{{job.location}}</h4></i>
+	<b><h5>Creation Date :-{{job.creationdate}}</h5></b><h5 style="color: blue">Salary--{{job.salary}}</h5>
+	<button style="background-color: red; color: #fff" type="submit"><a style="background-color: red; color: #fff" href="/job/applyforjob/{{job.id}}/"> Apply for All Jobs</a></button>
+</th>
+</tr>
+<tr>
+	<td><hr>
+		<h3>Overview</h3>
+		<p>{{job.description}}</p><hr>
+		<h3>Required Rxperience</h3>
+		<p>{{job.experience}}</p><hr>
+		<h3>Skills Required</h3>
+		<p>{{job.skills}}</p><hr>
+		<h3>Start Date for Applying</h3>
+		<p>{{job.start_date}}</p><hr>
+		<h3>End Date for Applying</h3>
+		<p>{{job.end_date}}</p>
+		
+	</td><hr>
+</tr>
+</table>
+</div>
+
+
+
+{% endblock %}
